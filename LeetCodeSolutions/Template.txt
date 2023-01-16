@@ -1,0 +1,16 @@
+﻿/* Template  */
+/*
+ * Problem {number}: {Title}
+ * Problem Details: {Details}
+*/
+
+/* Examples
+ * Example 1:  
+ * Example 2: 
+*/
+ /* Constraints:
+         
+ */
+
+ /* Solution theory :
+ */
