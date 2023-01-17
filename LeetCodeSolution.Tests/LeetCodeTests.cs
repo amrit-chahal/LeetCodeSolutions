@@ -72,6 +72,22 @@ namespace LeetCodeSolution.Tests
             Assert.Equal(expected, result);
         }
         #endregion
+
+
+        #region Problem 31 TestCases
+        [Theory]
+        [InlineData(new int[] { 1 }, new int[] { 1 })]
+        [InlineData(new int[] { 1, 2 }, new int[] { 2, 1 })]
+        [InlineData(new int[] { 3, 2, 1 }, new int[] { 1, 2, 3 })]
+        [InlineData(new int[] { 1, 1, 5 }, new int[] { 1, 5, 1 })]
+        [InlineData(new int[] { 1, 3, 2 }, new int[] { 2, 1, 3 })]
+        [InlineData(new int[] { 1, 5, 8, 4 }, new int[] { 1, 8, 4, 5 })]
+        public void NextPermutaions_ShouldReturnNextPermutation(int[] nums, int[] expected)
+        {
+            _leetCode.NextPermutation(nums);
+            Assert.Equal(expected, nums);
+        }
+        #endregion
     }
 
 }

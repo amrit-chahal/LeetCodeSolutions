@@ -45,6 +45,15 @@ namespace LeetCodeSolution.Tests
             int b = 1;
             return _leetCode.Divide(a, b);
         }
+
+        [Benchmark]
+
+        public void NextPermutaion()
+        {
+            var arr = new int[] { 1, 8, 4, 5 };
+            _leetCode.NextPermutation(arr);
+
+        }
         
 
 

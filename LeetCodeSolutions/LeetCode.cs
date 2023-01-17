@@ -53,7 +53,7 @@ namespace LeetCodeSolutions
 
 
         /*
-         * Problem {number}: Divide Two Integers
+         * Problem : Divide Two Integers
 
          * Problem Details: Given two integers dividend and divisor, divide two integers without using multiplication,
          * division, and mod operator.
@@ -126,6 +126,84 @@ namespace LeetCodeSolutions
             return isPositive ? (int)quotient : -(int)quotient;
 
         }
+        #endregion
+
+        #region Problem 30
+        //hard difficulty to be solved later
+        #endregion
+
+        #region Problem 31
+        /*
+          * Problem : Next Permutation
+          * Problem Details: A permutation of an array of integers is an arrangement of its members into a sequence or linear order.
+
+            For example, for arr = [1,2,3], the following are all the permutations of arr: [1,2,3], [1,3,2], [2, 1, 3], [2, 3, 1], [3,1,2], [3,2,1].
+            The next permutation of an array of integers is the next lexicographically greater permutation of its integer. More formally, if all the permutations of the array are sorted in one container according to their lexicographical order, then the next permutation of that array is the permutation that follows it in the sorted container. If such arrangement is not possible, the array must be rearranged as the lowest possible order (i.e., sorted in ascending order).
+
+            For example, the next permutation of arr = [1,2,3] is [1,3,2].
+            Similarly, the next permutation of arr = [2,3,1] is [3,1,2].
+            While the next permutation of arr = [3,2,1] is [1,2,3] because [3,2,1] does not have a lexicographical larger rearrangement.
+            Given an array of integers nums, find the next permutation of nums.
+
+            The replacement must be in place and use only constant extra memory.
+        */
+
+        /* Examples
+         * Example 1:Input: nums = [1,2,3]
+                     Output: [1,3,2]
+         * Example 2:Input: nums = [1,1,5]
+                     Output: [1,5,1]
+        */
+        /* Constraints:
+         * 1 <= nums.length <= 100
+         * 0 <= nums[i] <= 100
+
+        */
+
+        /* Solution theory : First we iterate the array in reverse order and find the first decreasing element and keep track
+         * of the index. Then we swap the element with the next element greater than decreasing element. If no decreasing element 
+         * found we simply reverse the array. Finally to get the next sorted permutation we reverse the elements after the decreasing
+         * element.
+        */
+
+        public void NextPermutation(int[] nums)
+        {
+            int n = nums.Length;
+            int k, l;
+            // Iterate the array in reverse order starting from the second last element
+            for (k = n - 2; k >= 0; k--)
+            {
+                // find the first decreasing element
+                if (nums[k] < nums[k + 1])
+                {
+                    break;
+                }
+            }
+            if (k < 0)
+            {
+                // if no decreasing element is found, reverse the entire array
+                Array.Reverse(nums);
+            }
+            else
+            {
+                // Iterate the array in reverse order starting from the last element
+                for (l = n - 1; l > k; l--)
+                {
+                    // find the first element that is greater than the decreasing element
+                    if (nums[l] > nums[k])
+                    {
+                        break;
+                    }
+                }
+                // swap the decreasing element and the element greater than it
+                int temp = nums[k];
+                nums[k] = nums[l];
+                nums[l] = temp;
+                // reverse the elements after the decreasing element
+                Array.Reverse(nums, k + 1, n - k - 1);
+            }
+        }
+
         #endregion
 
 
